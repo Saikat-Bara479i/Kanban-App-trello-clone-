@@ -132,3 +132,9 @@ h2 {
   margin: 0;
   font-size: 1.2rem;
 }
+.dragging {
+  opacity: 0.5;
+  transform: scale(1.02);
+  box-shadow: 10 10px 20px rgba(0, 0, 0, 0.2);
+}
+
