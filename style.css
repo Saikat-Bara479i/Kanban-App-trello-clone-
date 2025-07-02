@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background-image: url("https://images.pexels.com/photos/696407/pexels-photo-696407.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+}
+h2 {
+  background-color: aquamarine;
+  margin: -10px;
+
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.board {
+  display: flex;
+  gap: 2rem;
+}
+
+.column {
+  background-color: rgb(114, 137, 137);
+  width: 300px;
+  height: 650px;
+  max-height: 680px;
+  padding: 20px;
+  box-shadow: rgba(1000, 1000, 10000, 0.25) 11px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 19px;
+  display: flex;
+  flex-direction: column;
+}
+
+.column h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #0a0a0a;
+  padding-bottom: 4px;
+}
+
+.task {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.task-input {
+  width: 100%;
+  padding: 9px 5px;
+  border-radius: 5px;
+  background-color: rgb(69, 74, 88);
+  border: none;
+  color: white;
+}
+
+.add-task {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 7px;
+  border: none;
+  background-color: rgb(227, 166, 87);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.add-task:hover {
+  background-color: rgb(194, 113, 7);
+}
+
+.card {
+  width: 100%;
+
+  padding: 13px;
+  border-radius: 5px;
+  margin-top: 7px;
+  border: 2px solid rgb(221, 181, 128);
+  background-color: rgb(229, 141, 25);
+  cursor: grab;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  background-color: rgb(235, 139, 14);
+  box-shadow: #0a0a0a;
+}
+
+.dragging {
+  display: none;
+}
+
+.context-menu {
+  display: none;
+  position: absolute;
+  background-color: rgb(106, 153, 198);
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+.context-menu ul li {
+  list-style: none;
+  padding: 10px;
+  background-color: rgb(155, 158, 161);
+  margin-bottom: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.context-menu ul li:hover {
+  background-color: rgb(131, 131, 131);
+}
+.task h6 {
+  margin: -6px;
+  margin-top: -5px;
+  text-align: end;
+  display: block;
+}
+.task h3 {
+  display: block;
+  margin: 0;
+  font-size: 1.2rem;
+}
