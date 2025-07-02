@@ -34,7 +34,6 @@ function addTask(columnid) {
 function createtaskelement(tasktext, events) {
   const taskelement = document.createElement("div");
   taskelement.innerHTML = `<h3>${tasktext}</h3><br><h6>${events}</h6>`;
-  
   taskelement.classList.add("task");
   taskelement.classList.add("card");
   taskelement.draggable = true;
@@ -74,33 +73,28 @@ columns.forEach((column) => {
 function dragover(event) {
   event.preventDefault();
   this.appendChild(dragcard);
-  const afterelement = getelementbefore(this,event.pageY);
-  if(afterelement === null){
+  const afterelement = getelementbefore(this, event.pageY);
+  if (afterelement === null) {
     this.appendChild(dragcard);
-  }
-  else{
-    this.insertBefore(dragcard,afterelement);
+  } else {
+    this.insertBefore(dragcard, afterelement);
   }
 }
-function getelementbefore(container,y){
-  let dragbleelements= [
-    ...container.querySelectorAll(".card:not(.dragging)")
-  ]
+function getelementbefore(container, y) {
+  let dragbleelements = [...container.querySelectorAll(".card:not(.dragging)")];
   const result = dragbleelements.reduce(
-    (closeselement,currenttask)=>{
+    (closeselement, currenttask) => {
       const box = currenttask.getBoundingClientRect();
-      const offset=y-(box.top+box.height/2)
-      if(offset <0 && offset > closeselement.offset){
-        return {offset : offset,element:currenttask}
-      }
-      else{
-        return closeselement
+      const offset = y - (box.top + box.height / 2);
+      if (offset < 0 && offset > closeselement.offset) {
+        return { offset: offset, element: currenttask };
+      } else {
+        return closeselement;
       }
     },
-    {offset : Number.NEGATIVE_INFINITY}
-  )
+    { offset: Number.NEGATIVE_INFINITY }
+  );
   return result.element;
-   
 }
 
 const contextmenu = document.querySelector(".context-menu");
@@ -140,9 +134,9 @@ function updateTaskcount(columnid) {
 }
 function savetasktolacalStroge(columnid, tasktext, events) {
   const tasks = [];
-  
+
   tasks.push({ text: tasktext, date: events });
-  
+
   localStorage.setItem(columnid, JSON.stringify(tasks));
 }
 function laodtasktolocalstorage() {
@@ -166,4 +160,3 @@ function updateTasktolocalstroge() {
     localStorage.setItem(columnid, JSON.stringify(task));
   });
 }
-
